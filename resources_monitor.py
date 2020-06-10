@@ -166,13 +166,13 @@ for x in range(NUM_TELEMETRY_COLL):
     if device and os.path.exists(device):
         shell_cmd = "/usr/sbin/hddtemp {} | awk '{{print $NF}}' | sed 's/°C//g'".format(
             device)
-        print(shell_cmd)
         try:
             os_disk_temperature = int(os.popen(shell_cmd).read())
             data_disk_temperature = int(os.popen(shell_cmd).read())
         except Exception as e:
             print(
-                "exception was caught {} while quering temperature".format(e))
+                "exception was caught {} while quering temperature with cmd {}"
+                .format(e, shell_cmd))
     else:
         print("device {} does not exist, skip collecting temperature".format(
             device))
