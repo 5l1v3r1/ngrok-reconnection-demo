@@ -1,2 +1,9 @@
+.**
+
 .python-version
 etc/**
+
+ngrok_setup.tgz
+ngrok_setup/**
+
+./vagrant
